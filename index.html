@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Background Music for Gallery -->
+    <audio id="romantic-music" loop preload="auto">
+        <source src="music/music.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- UI Overlay -->
+        <div id="ui-layer">
+            <div id="score-board">
+                <span>❤️ Love Meter: </span>
+                <div class="progress-bar">
+                    <div id="love-fill"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Start Screen -->
+        <div id="start-screen" class="screen active">
+            <h1>Catch the Love!</h1>
+            <p>Catch enough hearts to reveal a special question...</p>
+            <button id="start-btn" class="btn">Start Game</button>
+        </div>
+
+        <!-- Proposal Modal (Hidden initially) -->
+        <div id="proposal-screen" class="screen hidden">
+            <div class="proposal-content">
+                <h1>Will You Be My Valentine?</h1>
+                <p class="sub-text">You caught my heart! Now I have to ask...</p>
+                <div class="buttons">
+                    <button id="yes-btn" class="btn yes-btn">YES!</button>
+                    <button id="no-btn" class="btn no-btn">No</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- NO SCREEN -->
+        <div id="noScreen" class="screen hidden">
+            <div class="noCard">
+                <!-- LOCAL GIF -->
+                <img src="./cute-cat.gif" alt="Cat Gun">
+                <h2>How Dare You!</h2>
+                <p>I will go back to say YES</p>
+                <button class="back" onclick="goBack()">Go Back</button>
+            </div>
+        </div>
+
+        <!-- Celebration Overlay -->
+        <div id="celebration-screen" class="screen hidden">
+            <h1>Happy Valentines Day! 💍</h1>
+            <p class="love-text">I love you Kritikajii !! ❤️</p>
+            <button id="next-btn" class="btn next-btn">A Letter for You ❤️</button>
+        </div>
+
+        <!-- Card Screen -->
+        <div id="card-screen" class="screen hidden">
+            <div class="valentine-card">
+                <h1>Our Love Letter</h1>
+                <img src="photos/1.jpeg" alt="Love Letter" class="love-letter">
+                <p>Every beat of my heart is for you. Happy Valentine's Day! 💕</p>
+
+                <div class="buttons">
+                    <button id="back-to-celebration" class="btn back-btn">Back</button>
+                    <button id="to-gallery" class="btn next-btn">Our Photo Gallery</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gallery Screen -->
+        <div id="gallery-screen" class="screen hidden">
+            <div class="photo-gallery">
+                <h2>Our Photo Gallery</h2>
+                <div id="gallery-grid">
+                    <!-- Photos loaded dynamically by JS -->
+                </div>
+                <button id="back-from-gallery" class="btn back-btn" style="margin-top: 50px;">Back to Letter</button>
+            </div>
+        </div>
+
+        <!-- Photo Modal (Full Screen View) -->
+        <div id="photo-modal" class="photo-modal hidden">
+            <button id="close-photo-btn" class="close-btn">&times;</button>
+            <div class="photo-modal-content">
+                <img id="modal-photo" src="" alt="Full Photo">
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
